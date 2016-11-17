@@ -7,11 +7,12 @@ def giphy_remote(request):
     response_text = ""
     dict = {}
     args = request.body.split('&')
+
     for arg in args:
         arg_tmp = arg.split('=')
         dict[arg_tmp[0]] = arg_tmp[1]
-    keywords = dict.get('text', None)
 
+    keywords = dict.get('text', None)
     if keywords:
         response_text = "/giphy %s \n ![alt text](%s \"%s\")" % (keywords, query_giphy_api(keywords), keywords)
 
