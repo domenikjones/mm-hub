@@ -11,6 +11,14 @@ def giphy_remote(request):
 
     #1nd87ztd3ib5mckuekqxxtsjow
 
+    dict = {}
+    args = request.body.split('&')
+    for arg in args:
+        arg_tmp = arg.split('0')
+        dict[arg_tmp[0]] = arg_tmp[1]
+
+    print(dict)
+
     json_data = {
         "response_type": "in_channel",
         'text': "this is a test commands response",
