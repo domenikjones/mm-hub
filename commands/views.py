@@ -25,7 +25,7 @@ def giphy_remote(request):
     keywords = dict.get('text', None)
 
     if keywords:
-        gif = "(%s)" % query_giphy_api(keywords)
+        gif = "![alt text](%s \"%s\")" % (query_giphy_api(keywords), keywords)
 
     json_data = {
         "response_type": "in_channel",
