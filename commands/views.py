@@ -11,12 +11,15 @@ def giphy_remote(request):
         arg_tmp = arg.split('=')
         dict[arg_tmp[0]] = arg_tmp[1]
     keywords = dict.get('text', None)
+
     if keywords:
-        response_text = "/giphy %s     ![alt text](%s \"%s\")" % (keywords, query_giphy_api(keywords), keywords)
+        response_text = "/giphy %s \n ![alt text](%s \"%s\")" % (keywords, query_giphy_api(keywords), keywords)
+
     json_data = {
         "response_type": "in_channel",
         'text': response_text,
     }
+
     json_dump = json.dumps(json_data)
     return HttpResponse(json_dump)
 
