@@ -36,7 +36,7 @@ def giphy_remote(request):
 
 
 def query_giphy_api(keywords):
-    url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho"
+    url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=%s" % keywords
     r = requests.get(url)
     dict = json.loads(r.text)
     data = dict.get('data', None)
