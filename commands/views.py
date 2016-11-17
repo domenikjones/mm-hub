@@ -41,5 +41,5 @@ def query_giphy_api(keywords):
     dict = json.loads(r.text)
     data = dict.get('data', None)
     if data:
-        return data.get('url', None)
+        return data.get('image_original_url', None)
     return None
